@@ -11,27 +11,26 @@ public final class Main {
 
     public static void main(String[] args){
         initUi();
-        final Controller controller = new Controller(mLower, mUpper);
         try {
-            controller.crawl();
+            Crawler.crawl(mLower, mUpper);
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     private static void initUi(){
-        System.out.println("==============================================LIHKG Web Controller================================================");
-        System.out.println("Rule: You have to enter range of post ID to activate the crawling process. The input ID must be positive integer");
+        System.out.println("==============================================LIHKG Web Crawler================================================");
+        System.out.println("Rule: You have to enter range of thread ID to activate the crawling process. The input ID must be positive integer");
         final Scanner scanner = new Scanner(System.in);
         boolean isValid;
         do{
             isValid = true;
             try{
                 if(mLower==0){
-                    System.out.print("Please input the lower bound of post id: ");
+                    System.out.print("Please input the lower bound of thread id: ");
                     mLower = scanner.nextInt();
                 }
-                System.out.print("Please input the upper bound of post id: ");
+                System.out.print("Please input the upper bound of thread id: ");
                 mUpper = scanner.nextInt();
             }catch(InputMismatchException e){
                 scanner.nextLine();
