@@ -10,6 +10,10 @@ import java.util.concurrent.Future;
 
 final class Crawler {
 
+    private Crawler(){
+        //Empty private constructor
+    }
+
     static void crawl(int lower, int upper) throws ExecutionException, InterruptedException {
         final List<Future<?>> futures = new ArrayList<>();
         final ExecutorService service = Executors.newFixedThreadPool(10);

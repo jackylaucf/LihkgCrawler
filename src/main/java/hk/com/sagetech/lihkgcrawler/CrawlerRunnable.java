@@ -16,11 +16,15 @@ public final class CrawlerRunnable implements Runnable{
     private static final String PAGE_CLASS_NAME = "_1H7LRkyaZfWThykmNIYwpH";
     private static final String SCROLL_PANEL_ID = "rightPanel";
     private static final int SCROLL_TOP_PARAM = 2000;
+    private static final int TIMEOUT_LIMIT = 60;
+    private static final int SCROLL_WAITING_PERIOD = 2000;
 
-    private static final WebDriver DRIVER = new ChromeDriver(new ChromeOptions().setHeadless(false));
+    private static final WebDriver DRIVER = new ChromeDriver(new ChromeOptions().setHeadless(true));
     private String mUrl;
+    private int mThreadId;
 
     CrawlerRunnable(int threadId){
+        mThreadId = threadId;
         mUrl = THREAD_URL + threadId + "/";
     }
 
@@ -28,13 +32,14 @@ public final class CrawlerRunnable implements Runnable{
     public void run() {
         System.out.println("Crawling URL: " + mUrl);
         String html = getHtml();
-        System.out.println(html);
+        DRIVER.quit();
+        parseHtml(html);
 
     }
 
     private String getHtml(){
         DRIVER.get(mUrl);
-        WebDriverWait wait = new WebDriverWait(DRIVER, 60);
+        WebDriverWait wait = new WebDriverWait(DRIVER, TIMEOUT_LIMIT);
         wait.until((webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete")));
 
         int page = 0;
@@ -47,7 +52,7 @@ public final class CrawlerRunnable implements Runnable{
                 scrollTop += SCROLL_TOP_PARAM;
                 jsExecutor.executeScript("document.getElementById(\"" + SCROLL_PANEL_ID + "\").scrollTop=" + scrollTop);
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(SCROLL_WAITING_PERIOD);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     return null;
@@ -61,8 +66,10 @@ public final class CrawlerRunnable implements Runnable{
 
     private List<UserActivityModel> parseHtml(String html){
         if(html!=null){
-
+            return Parser.getUserActivities(mThreadId, html);
         }
         return null;
     }
+
+
 }

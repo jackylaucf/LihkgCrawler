@@ -4,9 +4,9 @@ import java.time.LocalDateTime;
 
 public final class UserActivityModel {
 
-    private int postId;
-    private String postTitle;
-    private int postPage;
+    private int threadId;
+    private String threadTitle;
+    private int threadPage;
     private int commentNumber;
     private int userId;
     private String userName;
@@ -17,17 +17,17 @@ public final class UserActivityModel {
         //Empty Constructor
     }
 
-    public int getPostId() { return postId; }
+    public int getThreadId() { return threadId; }
 
-    public void setPostId(int postId) { this.postId = postId; }
+    public void setThreadId(int threadId) { this.threadId = threadId; }
 
-    public String getPostTitle() { return postTitle; }
+    public String getThreadTitle() { return threadTitle; }
 
-    public void setPostTitle(String postTitle) { this.postTitle = postTitle; }
+    public void setThreadTitle(String threadTitle) { this.threadTitle = threadTitle; }
 
-    public int getPostPage() { return postPage; }
+    public int getthreadPage() { return threadPage; }
 
-    public void setPostPage(int postPage) { this.postPage = postPage; }
+    public void setThreadPage(int threadPage) { this.threadPage = threadPage; }
 
     public int getCommentNumber() { return commentNumber; }
 
