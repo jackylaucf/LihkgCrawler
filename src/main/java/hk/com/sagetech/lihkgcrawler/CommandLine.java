@@ -1,22 +1,28 @@
 package hk.com.sagetech.lihkgcrawler;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Component;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 
-public final class Main {
+@Component
+public class CommandLine implements CommandLineRunner {
+
+    @Autowired
+    private Crawler mCrawler;
 
     private static int mLower = 0;
     private static int mUpper = 0;
 
-    public static void main(String[] args){
+    @Override
+    public void run(String... args) throws Exception {
         initUi();
-        try {
-            Crawler.crawl(mLower, mUpper);
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
+        mCrawler.crawl(mLower, mUpper);
     }
 
     private static void initUi(){

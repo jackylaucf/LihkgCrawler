@@ -1,5 +1,6 @@
 package hk.com.sagetech.lihkgcrawler;
 
+import hk.com.sagetech.lihkgcrawler.jpa.UserActivityModel;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,6 +20,9 @@ final class Parser {
     private static final String USER_BAR_CLASS_NAME = "ZZtOrmcIRcvdpnW09DzFk";
     private static final String DATE_TIME_CLASS_NAME = "Ahi80YgykKo22njTSCzs_";
     private static final String CONTENT_CLASS_NAME = "GAagiRXJU88Nul1M7Ai0H";
+    private static final String BLOCKQUOTE_CLASS_NAME = "_31B9lsqlMMdzv-FSYUkXeV";
+    private static final String CONTENT_ATTRIBUTE_KEY = "data-ast-root";
+    private static final String DATE_TIME_ATTRIBUTE_KEY = "data-tip";
     private static final String USER_HREF_PREFIX = "/profile/";
 
     private Parser(){
@@ -43,6 +47,9 @@ final class Parser {
                 //Comment Number
                 int commentNumber = Integer.valueOf(commentElement.id());
 
+                //Thread page
+                int threadPage = (commentNumber%25==0) ? commentNumber/25 : (commentNumber/25+1);
+
                 //UserID & UserName
                 int userId = 0;
                 String userName = null;
@@ -59,7 +66,7 @@ final class Parser {
                 LocalDateTime dateTime = null;
                 Elements dateTimeElements = commentElement.getElementsByClass(DATE_TIME_CLASS_NAME);
                 if(!dateTimeElements.isEmpty()){
-                    String dateTimeStr = dateTimeElements.first().attr("data-tip");
+                    String dateTimeStr = dateTimeElements.first().attr(DATE_TIME_ATTRIBUTE_KEY);
                     try {
                         dateTime = formatter.parse(dateTimeStr)
                                 .toInstant()
@@ -77,23 +84,35 @@ final class Parser {
                     int childrenSize = contentElements.first().childNodeSize();
                     Node targetParentNode = null;
                     if(childrenSize>0){
-                        for(Node node: contentElements.first().childNodes()){
-                            if(node.hasAttr("data-ast-root")){
-                                targetParentNode = node;
-                                break;
+                        if(childrenSize==1){
+                            targetParentNode = contentElements.first().child(0);
+                        }else{
+                            for(Node node: contentElements.first().childNodes()){
+                                if(node.hasAttr(CONTENT_ATTRIBUTE_KEY)){
+                                    targetParentNode = node;
+                                    break;
+                                }
                             }
                         }
+
                         if(targetParentNode!=null){
                             int nodeSize = targetParentNode.childNodeSize();
                             StringBuilder buffer = new StringBuilder();
                             for (int i = 0; i < nodeSize; i++) {
                                 Node node = targetParentNode.childNode(i);
-                                if (node.hasAttr("alt")) {
+
+                                if(node.hasAttr("class")){
+                                    if(node.attr("class").equals(BLOCKQUOTE_CLASS_NAME)) {
+                                        continue;
+                                    }
+                                }
+
+                                if(node.hasAttr("alt")) {
                                     buffer.append(node.attr("alt"));
-                                } else if (node.hasAttr("href")) {
+                                }else if(node.hasAttr("href")) {
                                     buffer.append(System.lineSeparator());
                                     buffer.append(node.attr("href"));
-                                } else {
+                                }else{
                                     buffer.append(node.toString().trim());
                                 }
                             }
@@ -106,18 +125,12 @@ final class Parser {
                 UserActivityModel userActivity = new UserActivityModel();
                 userActivity.setThreadId(threadId);
                 userActivity.setThreadTitle(threadTitle);
+                userActivity.setThreadPage(threadPage);
                 userActivity.setCommentNumber(commentNumber);
                 userActivity.setUserId(userId);
                 userActivity.setUserName(userName);
                 userActivity.setDateTime(dateTime);
                 userActivity.setContent(content);
-                System.out.println("Content: " + userActivity.getContent());
-                System.out.println("Comment Number: " + userActivity.getCommentNumber());
-                System.out.println("Date time: " + userActivity.getDateTime());
-                System.out.println("Thread ID: " + userActivity.getThreadId());
-                System.out.println("Thread Title: " + userActivity.getThreadTitle());
-                System.out.println("User ID: " + userActivity.getUserId());
-                System.out.println("User Name: " + userActivity.getUserName());
                 userActivities.add(userActivity);
             }
         }
