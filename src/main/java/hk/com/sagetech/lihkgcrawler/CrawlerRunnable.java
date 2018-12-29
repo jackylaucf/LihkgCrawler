@@ -1,5 +1,7 @@
 package hk.com.sagetech.lihkgcrawler;
 
+import hk.com.sagetech.lihkgcrawler.jpa.LihkgUserActivityRepo;
+import hk.com.sagetech.lihkgcrawler.jpa.UserActivityModel;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public final class CrawlerRunnable implements Runnable{
+public class CrawlerRunnable implements Runnable{
 
     //WebDriver-centric parameter
     private static final String THREAD_URL= "https://lihkg.com/thread/";
@@ -19,33 +21,39 @@ public final class CrawlerRunnable implements Runnable{
     private static final int TIMEOUT_LIMIT = 60;
     private static final int SCROLL_WAITING_PERIOD = 2000;
 
-    private static final WebDriver DRIVER = new ChromeDriver(new ChromeOptions().setHeadless(true));
-    private String mUrl;
-    private int mThreadId;
+    private final WebDriver mDriver;
+    private final LihkgUserActivityRepo mUserActivityRepo;
+    private final String mUrl;
+    private final int mThreadId;
 
-    CrawlerRunnable(int threadId){
+    CrawlerRunnable(int threadId, LihkgUserActivityRepo repo){
         mThreadId = threadId;
         mUrl = THREAD_URL + threadId + "/";
+        mUserActivityRepo = repo;
+        mDriver = new ChromeDriver(new ChromeOptions().setHeadless(true));
     }
 
     @Override
     public void run() {
         System.out.println("Crawling URL: " + mUrl);
         String html = getHtml();
-        DRIVER.quit();
-        parseHtml(html);
-
+        mDriver.close();
+        List<UserActivityModel> userActivityModels = parseHtml(html);
+        if(userActivityModels!=null){
+            mUserActivityRepo.saveAll(userActivityModels);
+        }
+        System.out.println("Crawling of thread #" + mThreadId + " is completed");
     }
 
     private String getHtml(){
-        DRIVER.get(mUrl);
-        WebDriverWait wait = new WebDriverWait(DRIVER, TIMEOUT_LIMIT);
+        mDriver.get(mUrl);
+        WebDriverWait wait = new WebDriverWait(mDriver, TIMEOUT_LIMIT);
         wait.until((webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete")));
 
-        int page = 0;
-        page = DRIVER.findElements(By.xpath("//div[@class=\"" + PAGE_CLASS_NAME + "\"][1]/select/option")).size();
+        int page;
+        page = mDriver.findElements(By.xpath("//div[@class=\"" + PAGE_CLASS_NAME + "\"][1]/select/option")).size();
         if(page > 0){
-            JavascriptExecutor jsExecutor = (JavascriptExecutor) DRIVER;
+            JavascriptExecutor jsExecutor = (JavascriptExecutor) mDriver;
             String targetUrl = mUrl + "page/" + page;
             int scrollTop = 0;
             do{
@@ -58,8 +66,8 @@ public final class CrawlerRunnable implements Runnable{
                     return null;
                 }
                 wait.until((webDriver -> ((JavascriptExecutor)webDriver).executeScript("return document.readyState").equals("complete")));
-            }while(!DRIVER.getCurrentUrl().equals(targetUrl));
-            return DRIVER.getPageSource();
+            }while(!mDriver.getCurrentUrl().equals(targetUrl));
+            return mDriver.getPageSource();
         }
         return null;
     }

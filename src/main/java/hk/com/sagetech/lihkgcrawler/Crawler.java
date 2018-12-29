@@ -1,30 +1,36 @@
 package hk.com.sagetech.lihkgcrawler;
 
 
+import hk.com.sagetech.lihkgcrawler.jpa.LihkgUserActivityRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-final class Crawler {
+@Service
+class Crawler {
 
-    private Crawler(){
-        //Empty private constructor
+    @Autowired
+    private LihkgUserActivityRepo repo;
+    @Autowired
+    private ThreadPoolTaskExecutor taskExecutor;
+
+    public Crawler(){
+        //Empty public constructor
     }
 
-    static void crawl(int lower, int upper) throws ExecutionException, InterruptedException {
+    void crawl(int lower, int upper) throws ExecutionException, InterruptedException {
         final List<Future<?>> futures = new ArrayList<>();
-        final ExecutorService service = Executors.newFixedThreadPool(10);
         for(int i=lower; i<=upper; i++){
-            final CrawlerRunnable crawlerRunnable = new CrawlerRunnable(i);
-            futures.add(service.submit(crawlerRunnable));
+            futures.add(taskExecutor.submit(new CrawlerRunnable(i, repo)));
         }
-
         for(Future<?> future : futures){
             future.get();
         }
-        service.shutdown();
+        taskExecutor.shutdown();
     }
 }

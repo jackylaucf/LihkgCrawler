@@ -1,16 +1,37 @@
-package hk.com.sagetech.lihkgcrawler;
+package hk.com.sagetech.lihkgcrawler.jpa;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name="USER_ACTIVITY")
+@IdClass(UserActivityCompositeKey.class)
 public final class UserActivityModel {
 
+    @Id
+    @Column(name="THREAD_ID")
     private int threadId;
+
+    @Column(name="THREAD_TITLE")
     private String threadTitle;
+
+    @Column(name="THREAD_PAGE")
     private int threadPage;
+
+    @Id
+    @Column(name="COMMENT_NO")
     private int commentNumber;
+
+    @Column(name="USER_ID")
     private int userId;
+
+    @Column(name="USER_NAME")
     private String userName;
+
+    @Column(name="DATE_TIME")
     private LocalDateTime dateTime;
+
+    @Column(name="CONTENT")
     private String content;
 
     public UserActivityModel(){
