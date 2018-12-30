@@ -23,6 +23,7 @@ final class Parser {
     private static final String BLOCKQUOTE_CLASS_NAME = "_31B9lsqlMMdzv-FSYUkXeV";
     private static final String CONTENT_ATTRIBUTE_KEY = "data-ast-root";
     private static final String DATE_TIME_ATTRIBUTE_KEY = "data-tip";
+    private static final String EMOJI_CONTAINER_ATTRIBUTE_KEY = "data-emoji-container";
     private static final String USER_HREF_PREFIX = "/profile/";
 
     private Parser(){
@@ -30,7 +31,6 @@ final class Parser {
     }
 
     static List<UserActivityModel> getUserActivities(int threadId, String html){
-
         List<UserActivityModel> userActivities = new ArrayList<>();
         Document htmlDoc = Jsoup.parse(html);
 
@@ -79,6 +79,7 @@ final class Parser {
 
                 //Comment Content
                 String content = null;
+                commentElement.select("span").remove();
                 Elements contentElements = commentElement.getElementsByClass(CONTENT_CLASS_NAME);
                 if(!contentElements.isEmpty()){
                     int childrenSize = contentElements.first().childNodeSize();
@@ -112,6 +113,8 @@ final class Parser {
                                 }else if(node.hasAttr("href")) {
                                     buffer.append(System.lineSeparator());
                                     buffer.append(node.attr("href"));
+                                }else if(node.hasAttr(EMOJI_CONTAINER_ATTRIBUTE_KEY)){
+                                    buffer.append(node.childNode(0).attr("alt"));
                                 }else{
                                     buffer.append(node.toString().trim());
                                 }

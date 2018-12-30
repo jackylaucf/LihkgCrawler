@@ -8,6 +8,9 @@ import java.time.LocalDateTime;
 @IdClass(UserActivityCompositeKey.class)
 public final class UserActivityModel {
 
+    @Transient
+    private static final int CONTENT_LENGTH_LIMIT = 4000;
+
     @Id
     @Column(name="THREAD_ID")
     private int threadId;
@@ -68,5 +71,13 @@ public final class UserActivityModel {
 
     public String getContent() { return content; }
 
-    public void setContent(String content) { this.content = content; }
+    public void setContent(String content) {
+        if(content==null){
+            this.content="";
+        }else if(content.length()>CONTENT_LENGTH_LIMIT){
+            this.content = content.substring(0, CONTENT_LENGTH_LIMIT);
+        }else{
+            this.content = content;
+        }
+    }
 }

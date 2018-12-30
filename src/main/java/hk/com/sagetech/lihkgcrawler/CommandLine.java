@@ -3,8 +3,6 @@ package hk.com.sagetech.lihkgcrawler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
-import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
 import java.util.InputMismatchException;
@@ -14,7 +12,7 @@ import java.util.Scanner;
 public class CommandLine implements CommandLineRunner {
 
     @Autowired
-    private Crawler mCrawler;
+    private ThreadPoolExecutorService mThreadPoolExecutorService;
 
     private static int mLower = 0;
     private static int mUpper = 0;
@@ -22,11 +20,11 @@ public class CommandLine implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         initUi();
-        mCrawler.crawl(mLower, mUpper);
+        mThreadPoolExecutorService.start(mLower, mUpper);
     }
 
     private static void initUi(){
-        System.out.println("==============================================LIHKG Web Crawler================================================");
+        System.out.println("==============================================LIHKG Web ThreadPoolExecutorService================================================");
         System.out.println("Rule: You have to enter range of thread ID to activate the crawling process. The input ID must be positive integer");
         final Scanner scanner = new Scanner(System.in);
         boolean isValid;

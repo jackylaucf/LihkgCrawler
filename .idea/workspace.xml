@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21ec27d4-946e-46a1-aa79-62e6401b87d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/LihkgUserActivityRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityCompositeKey.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/SAGE_TP_E480_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/SAGE_TP_E480_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/ThreadPoolExecutorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/UserActivityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -41,30 +37,30 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="11" />
+          <entry key="java" value="12" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="11" />
+          <entry key="JAVA" value="12" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="51" />
+          <entry key="dummy" value="83" />
           <entry key="gradle" value="98" />
-          <entry key="java" value="15331" />
+          <entry key="java" value="16855" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="98" />
-          <entry key="JAVA" value="15331" />
-          <entry key="PLAIN_TEXT" value="51" />
+          <entry key="JAVA" value="16855" />
+          <entry key="PLAIN_TEXT" value="83" />
           <entry key="Properties" value="5" />
         </counts>
       </usages-collector>
@@ -75,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-49">
+            <state relative-caret-position="-2">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
@@ -94,22 +90,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="33" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="33" />
+            <state relative-caret-position="374">
+              <caret line="22" column="50" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#202#203#0" expanded="true" />
@@ -120,10 +104,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/ThreadPoolExecutorService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="33" column="29" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="29" />
+            <state relative-caret-position="238">
+              <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-510">
-              <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
+            <state relative-caret-position="153">
+              <caret line="63" column="73" selection-start-line="63" selection-start-column="73" selection-end-line="63" selection-end-column="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -152,11 +136,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="127" column="54" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="54" />
+            <state relative-caret-position="246">
+              <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -167,8 +151,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="294">
+              <caret line="75" column="28" lean-forward="true" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,6 +169,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -193,6 +189,21 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>GAagiRXJU88Nul1M7Ai0H</find>
+      <find>htmlDoc</find>
+      <find>264</find>
+      <find>270</find>
+      <find>is null</find>
+      <find>258</find>
+      <find>259</find>
+      <find>262</find>
+      <find>263</find>
+      <find>256</find>
+      <find>261</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -602,25 +613,26 @@
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/UserActivityModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/JpaController.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityCompositeKey.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/LihkgUserActivityRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java" />
-        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Parser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/ThreadPoolExecutorService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="2899" />
+    <option name="y" value="-37" />
+    <option name="width" value="384" />
+    <option name="height" value="206" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -677,7 +689,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546102435761" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546182197709" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../AssetConcentration" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -765,14 +777,14 @@
       <window_info id="Image Layers" order="4" />
       <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.36654803" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.19217081" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Build" order="2" weight="0.20462634" />
       <window_info anchor="bottom" id="Messages" order="3" weight="0.3291815" />
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="5" />
-      <window_info anchor="bottom" id="Find" order="6" weight="0.32740214" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.27114967" />
+      <window_info anchor="bottom" id="Find" order="6" weight="0.3264642" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.4078091" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -799,16 +811,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityCompositeKey.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -818,7 +820,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-49">
+        <state relative-caret-position="-2">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
@@ -833,16 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="25" column="5" lean-forward="true" selection-start-line="25" selection-start-column="5" selection-end-line="25" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -850,10 +842,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/jpa/UserActivityModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="75" column="28" lean-forward="true" selection-start-line="75" selection-start-column="28" selection-end-line="75" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="33" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="33" />
+        <state relative-caret-position="374">
+          <caret line="22" column="50" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#202#203#0" expanded="true" />
@@ -862,30 +864,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="33" column="29" selection-start-line="33" selection-start-column="21" selection-end-line="33" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CrawlerRunnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-510">
-          <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Parser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="127" column="54" selection-start-line="127" selection-start-column="54" selection-end-line="127" selection-end-column="54" />
+        <state relative-caret-position="246">
+          <caret line="33" column="53" selection-start-line="33" selection-start-column="53" selection-end-line="33" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/CommandLine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="21" column="17" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/ThreadPoolExecutorService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hk/com/sagetech/lihkgcrawler/Crawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="63" column="73" selection-start-line="63" selection-start-column="73" selection-end-line="63" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

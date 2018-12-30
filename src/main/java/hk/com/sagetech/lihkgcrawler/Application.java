@@ -8,15 +8,20 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 @SpringBootApplication
 public class Application {
 
+    //Configuration parameter
+    private static final int KEEP_ALIVE_SECONDS = 600;
+    private static final int THREAD_POOL_SIZE = 15;
+
     public static void main(String[] args){
         SpringApplication.run(Application.class);
     }
 
+    //Configuration
     @Bean
     public ThreadPoolTaskExecutor taskExecutor() {
         ThreadPoolTaskExecutor threadPoolTaskExecutor = new ThreadPoolTaskExecutor();
-        threadPoolTaskExecutor.setKeepAliveSeconds(300);
-        threadPoolTaskExecutor.setCorePoolSize(15);
+        threadPoolTaskExecutor.setKeepAliveSeconds(KEEP_ALIVE_SECONDS);
+        threadPoolTaskExecutor.setCorePoolSize(THREAD_POOL_SIZE);
         return threadPoolTaskExecutor;
     }
 }
